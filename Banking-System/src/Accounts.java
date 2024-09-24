@@ -85,7 +85,7 @@ public class Accounts {
             preparedStatement.setString(1, email);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
-                return true
+                return true;
             } else {
                 return false;
             }
