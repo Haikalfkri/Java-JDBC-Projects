@@ -57,7 +57,7 @@ public class Patient {
                 String name = resultSet.getString("name");
                 int age = resultSet.getInt("age");
                 String gender = resultSet.getString("gender");
-                System.out.printf("|%-12s|%-18s|%-11s|%-19s|\n", id, name, age, gender);
+                System.out.printf("| %-10s | %-16s | %-9s | %-17s |\n", id, name, age, gender);
                 System.out.println("+------------+------------------+-----------+-------------------+");
             }
         } catch (SQLException e) {
@@ -69,6 +69,7 @@ public class Patient {
         String query = "SELECT * FROM patients WHERE id = ?";
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {
                 return true;
